@@ -1,0 +1,253 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #000;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+.game-wrapper {
+  border-radius: 4px;
+  height: 543px;
+  padding: 1px;
+  background: linear-gradient(
+    82.43deg,
+    #ff4a00 0%,
+    rgba(255, 78, 0, 0) 51.1%,
+    #ff4a00 100%
+  );
+}
+.game-inner {
+  position: relative;
+  height: 100%;
+  background: url('../images/game-bg.png') center;
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* AVAILABLE GAMES */
+.game-moves {
+  background: url('../images/available-moves.svg') center no-repeat; 
+  position: absolute;
+  top: -5px;
+  padding: 14px 12px;
+  right: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 90px;
+  height: 114px;
+}
+.game-moves__number {
+  font-size: 42px;
+  line-height: 51px;
+  color: #FFFFFF;
+  text-shadow: 0px 0px 25px rgba(255, 255, 255, 0.3);
+}
+.game-moves__text {
+  font-size: 10px;
+  line-height: 12px;
+  color: #747A7C;
+}
+/* AVAILABLE GAMES END */
+
+/* ROULETTE */
+.game-content {
+  width: 926px;
+  height: 515px;
+  overflow: hidden;
+  position: relative;
+  box-sizing: content-box;
+  padding: 0 30px;
+  /* padding-top: 238px; */
+}
+.game__arrows {
+  position: absolute;
+  top: 30px;
+  left: calc(50% - 34px);
+  z-index: 20;
+}
+.game-wreath {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.prizes {
+  position: relative;
+  width: 926px;
+  height: 998px;
+  z-index: 10;
+}
+.prizes-roll {
+  animation-name: roll;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+}
+@keyframes roll {
+  from {
+    transform: rotate(0);
+  }
+  to {    
+    transform: rotate(360deg);
+  }
+}
+.prize-item {
+  position: absolute;
+  height: 100%;
+}
+
+.prize-item:nth-child(2) {
+  transform: rotate(36deg);
+}
+.prize-item:nth-child(3) {
+  transform: rotate(calc(36deg * 2));
+}
+.prize-item:nth-child(4) {
+  transform: rotate(calc(36deg * 3));
+}
+.prize-item:nth-child(5) {
+  transform: rotate(calc(36deg * 4));
+}
+.prize-item:nth-child(6) {
+  transform: rotate(calc(36deg * 5));
+}
+.prize-item:nth-child(7) {
+  transform: rotate(calc(36deg * 6));
+}
+.prize-item:nth-child(8) {
+  transform: rotate(calc(36deg * 7));
+}
+.prize-item:nth-child(9) {
+  transform: rotate(calc(36deg * 8));
+}
+.prize-item:nth-child(10) {
+  transform: rotate(calc(36deg * 9));
+}
+
+.prize-item__img {
+  position: absolute;
+  top: 20px;
+  width: 200px;
+  height: 200px;
+  left: calc(50% - 100px);
+}
+/* ROULETTE */
+
+/* ROULETTE FORM */
+.game-form {
+  background: url('../images/game_inner_bg.png') top center no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: calc(50% - 697px/2);
+  top: 165px;
+  width: 697px;
+  height: 614px;
+  border-radius: 50%;
+  text-transform: uppercase;
+  padding: 110px; 
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.game-form__title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;  
+}
+.game-form__text {
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
+  color: #747A7C;
+  margin-top: 8px;  
+}
+.game-form__btn {
+  margin-top: 30px;
+  background: radial-gradient(50% 50% at 50% 50%, #FF8000 0%, #FF4A00 100%);
+  border: 1px solid #FF7A00;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FFFFFF;
+  height: 60px;
+  width: 310px;
+  padding: 16px 27px;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+
+  z-index: 20;
+}
+.game-form-promocode {
+  margin-top: 22px;
+  display: flex;
+}
+.game-form-promocode__input {
+  border: 2px dashed #3B4042;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: none;
+  margin-right: 12px;
+  padding: 16px 28px;
+  color: #fff;
+  outline: none;
+}
+.game-form-promocode__btn {
+  border: 1px solid #3B4042;
+  border-radius: 5px;
+  height: 48px;
+  width: 48px;
+  background: none;
+  outline: none;
+}
+/* ROULETTE FORM */
+
+
+/* PRIZES */
+.game-consistent {
+  background: #111217;
+  border: 1px solid #14161B;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.game-consistent-item {
+  background: #161A1F;
+  border: 1px solid #1B1B1F;
+  box-sizing: border-box;
+  border-radius: 5px;
+  text-align: center;
+  padding: 0 18px 18px;
+  margin: 6px;
+  width: calc(100% / 7 - 12px);
+}
+
+.game-consistent-item img {
+  max-width: 169px;
+  max-height: 169px;
+  width: 100%;
+}
+
+.game-consistent-item__label {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  
+  color: #747A7C;
+}
+
+/* PRIZES */
