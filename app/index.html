@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+  </head>
+
+  <body>
+    <div class="game-wrapper" id="app">
+      <div class="game-inner">
+        <div class="game-moves">
+          <div class="game-moves__number">2</div>
+          <div class="game-moves__text">Доступно вращений</div>
+        </div>
+
+        <div class="game-content">
+          <!-- Prizes will move around -->
+          <div class="prizes" :class="{'prizes-roll': isRoll}">
+            <app-prize
+              :color="item.color"
+              v-for="(item, i) in prizes"
+              :img-url="item.imgUrl"
+              :key="i">
+              <img :src="item.imgUrl" alt="">
+          </div>
+
+          <div class="game-form">
+            <div class="game-form__title">Колесо бонусов</div>
+            <div class="game-form__text">
+              Крути колесо, чтобы получить свой приз
+            </div>
+            <button class="game-form__btn" @click="isRoll = !isRoll">
+              Вращать колесо
+            </button>
+
+            <div class="game-form-promocode">
+              <input
+                type="text"
+                placeholder="Введите промокод"
+                class="game-form-promocode__input"
+              />
+              <button class="game-form-promocode__btn">
+                <img src="./images/check-icon.svg" alt="Check" />
+              </button>
+            </div>
+          </div>
+          
+          <img src="./images/game_arrows.png" alt="" class="game__arrows" />
+          <img src="./images/wreath.png" alt="wreath" class="game-wreath">
+        </div>
+      </div>
+    </div>
+
+    <div class="game-consistent">
+      <div class="game-consistent-item">
+        <img src="./images/prizes/prize_1.png" alt="Prize 1" />
+        <div class="game-consistent-item__label">
+          + 0.25$ на баланс пользователя
+        </div>
+      </div>
+
+      <div class="game-consistent-item">
+        <img src="./images/prizes/prize_2.png" alt="Prize 1" />
+        <div class="game-consistent-item__label">
+          Страховка х1.5 на ставку в режиме CRASH
+        </div>
+      </div>
+
+      <div class="game-consistent-item">
+        <img src="./images/prizes/prize_3.png" alt="Prize 1" />
+        <div class="game-consistent-item__label">
+          Страховка х2.0 на ставку в режиме Double
+        </div>
+      </div>
+
+      <div class="game-consistent-item">
+        <img src="./images/prizes/prize_4.png" alt="Prize 1" />
+        <div class="game-consistent-item__label">
+          +1 бесплатный спин колеса бонусов
+        </div>
+      </div>
+
+      <div class="game-consistent-item">
+        <img src="./images/prizes/prize_5.png" alt="Prize 1" />
+        <div class="game-consistent-item__label">
+          Бонус к пополнению баланса +15%
+        </div>
+      </div>
+
+      <div class="game-consistent-item">
+        <img src="./images/prizes/prize_6.png" alt="Prize 1" />
+        <div class="game-consistent-item__label">Безумная ставка на х2</div>
+      </div>
+
+      <div class="game-consistent-item">
+        <img src="./images/prizes/prize_1.png" alt="Prize 1" />
+        <div class="game-consistent-item__label">+ 0.25$ на баланс пользователя</div>
+      </div>
+    </div>
+
+    <template id="prizeTemplate">
+      <div class="prize-item">
+        <svg width="927" height="998" viewBox="0 0 927 935" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <mask id="path-1-inside-1" fill="white">
+          <path d="M321.332 31.1157C414.664 0.930908 515.171 1.16815 608.36 31.7933L559.964 179.056C497.974 158.684 431.117 158.526 369.032 178.605L321.332 31.1157Z"/>
+          </mask>
+          <path d="M321.332 31.1157C414.664 0.930908 515.171 1.16815 608.36 31.7933L559.964 179.056C497.974 158.684 431.117 158.526 369.032 178.605L321.332 31.1157Z" :fill="bgColor" stroke="url(#paint0_radial)" stroke-width="2" mask="url(#path-1-inside-1)"/>
+          <mask id="path-2-inside-2" fill="white">
+          <path d="M367.953 176.066C430.544 155.824 497.946 155.983 560.441 176.521L558.565 182.229C497.28 162.088 431.181 161.932 369.802 181.783L367.953 176.066Z"/>
+          </mask>
+          <path d="M367.953 176.066C430.544 155.824 497.946 155.983 560.441 176.521L558.565 182.229C497.28 162.088 431.181 161.932 369.802 181.783L367.953 176.066Z" :fill="lineColor" stroke="url(#paint1_radial)" stroke-width="2" mask="url(#path-2-inside-2)"/>
+          <defs>
+          <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(467.5 181) rotate(-90) scale(72.5 87.5)">
+          <stop stop-color="#122D8D"/>
+          <stop offset="1" stop-color="#5498FF" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(465.977 276.583) rotate(-90) scale(48.6204 58.6798)">
+          <stop stop-color="#122D8D"/>
+          <stop offset="1" stop-color="#5498FF" stop-opacity="0"/>
+          </radialGradient>
+          </defs>
+          
+        </svg>
+
+        <img class="prize-item__img" :src="imgUrl" alt="">
+
+      </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js" defer></script>
+    <script src="./js/main.js" defer></script>
+  </body>
+</html>
