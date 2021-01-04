@@ -56,7 +56,8 @@ body {
 
 /* ROULETTE */
 .game-content {
-  width: 926px;
+  max-width: 926px;
+  width: 100%;
   height: 515px;
   overflow: hidden;
   position: relative;
@@ -66,13 +67,13 @@ body {
 }
 .game__arrows {
   position: absolute;
-  top: 30px;
   left: calc(50% - 34px);
   z-index: 20;
+  bottom: 88%;
 }
 .game-wreath {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   z-index: 1;
   width: 100%;
@@ -87,8 +88,10 @@ body {
 
 .prizes {
   position: relative;
-  width: 926px;
+  max-width: 926px;
+  width: 100%;
   height: 998px;
+  padding-bottom: 105%;
   z-index: 10;
 }
 .prizes-roll {
@@ -136,7 +139,9 @@ body {
 .prize-item:nth-child(10) {
   transform: rotate(calc(36deg * 9));
 }
-
+.prize-item svg {
+  max-width: 100%;
+}
 .prize-item__img {
   position: absolute;
   top: 15px;
@@ -156,8 +161,9 @@ body {
   background-size: contain;
   position: absolute;
   left: calc(50% - 697px / 2);
-  top: 165px;
-  width: 697px;
+  top: 32%;
+  max-width: 697px;
+  width: 100%;
   height: 614px;
   border-radius: 50%;
   text-transform: uppercase;
@@ -171,7 +177,9 @@ body {
   position: absolute;
   z-index: 2;
   left: calc(50% - 697px / 2);
-  top: 165px;
+  bottom: 0;
+  max-width: 697px;
+  width: 100%;
 }
 .game-form__title {
   font-weight: bold;
@@ -199,8 +207,8 @@ body {
   line-height: 15px;
   color: #ffffff;
   height: 60px;
-  width: 310px;
-  padding: 16px 27px;
+  /* width: 310px; */
+  padding: 16px 20%;
   text-transform: uppercase;
   cursor: pointer;
   outline: none;
@@ -305,3 +313,32 @@ body {
   width: 100%;
 }
 /* ALTERNATIVE PAGE */
+
+@media (max-width: 1250px) {
+  .game-consistent {
+    flex-wrap: wrap;
+  }
+  .game-consistent-item {
+    width: calc(100% / 5 - 12px);
+  }
+}
+@media (max-width: 900px) {
+  .game-consistent-item {
+    width: calc(100% / 3 - 12px);
+  }
+}
+@media (max-width: 600px) {
+  .game-consistent-item {
+    width: calc(100% / 2 - 12px);
+  }
+}
+
+
+@media (max-width: 1040px) {
+  
+  .game-form, .game-form-bg {
+    left: calc(50% - 35.5%);
+    width: 75%;
+    max-width: unset;
+  }
+}
