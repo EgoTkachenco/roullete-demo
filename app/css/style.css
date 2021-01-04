@@ -4,7 +4,7 @@
 body {
   background: #000;
   padding: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .game-wrapper {
   border-radius: 4px;
@@ -20,7 +20,7 @@ body {
 .game-inner {
   position: relative;
   height: 100%;
-  background: url('../images/game-bg.png') center;
+  background: url("../images/game-bg.png") center;
   background-size: cover;
   overflow: hidden;
   display: flex;
@@ -30,7 +30,7 @@ body {
 
 /* AVAILABLE GAMES */
 .game-moves {
-  background: url('../images/available-moves.svg') center no-repeat; 
+  background: url("../images/available-moves.svg") center no-repeat;
   position: absolute;
   top: -5px;
   padding: 14px 12px;
@@ -44,13 +44,13 @@ body {
 .game-moves__number {
   font-size: 42px;
   line-height: 51px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-shadow: 0px 0px 25px rgba(255, 255, 255, 0.3);
 }
 .game-moves__text {
   font-size: 10px;
   line-height: 12px;
-  color: #747A7C;
+  color: #747a7c;
 }
 /* AVAILABLE GAMES END */
 
@@ -77,6 +77,13 @@ body {
   z-index: 1;
   width: 100%;
 }
+.game-sparks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+}
 
 .prizes {
   position: relative;
@@ -93,7 +100,7 @@ body {
   from {
     transform: rotate(0);
   }
-  to {    
+  to {
     transform: rotate(360deg);
   }
 }
@@ -132,53 +139,65 @@ body {
 
 .prize-item__img {
   position: absolute;
-  top: 20px;
-  width: 200px;
-  height: 200px;
-  left: calc(50% - 100px);
+  top: 15px;
+  /* width: 210px;
+  height: 210px;
+  left: calc(50% - 107px); */
+
+  width: 22.5%;
+  height: 21%;
+  left: calc(50% - 11.5%);
 }
 /* ROULETTE */
 
 /* ROULETTE FORM */
 .game-form {
-  background: url('../images/game_inner_bg.png') top center no-repeat;
+  /* background: url('../images/game_inner_bg.png') top center no-repeat; */
   background-size: contain;
   position: absolute;
-  left: calc(50% - 697px/2);
+  left: calc(50% - 697px / 2);
   top: 165px;
   width: 697px;
   height: 614px;
   border-radius: 50%;
   text-transform: uppercase;
-  padding: 110px; 
-
+  padding: 110px;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.game-form-bg {
+  position: absolute;
+  z-index: 2;
+  left: calc(50% - 697px / 2);
+  top: 165px;
 }
 .game-form__title {
   font-weight: bold;
   font-size: 20px;
   line-height: 24px;
-  color: #FFFFFF;  
+  color: #ffffff;
+  z-index: 20;
 }
 .game-form__text {
   font-weight: bold;
   font-size: 10px;
   line-height: 12px;
-  color: #747A7C;
-  margin-top: 8px;  
+  color: #747a7c;
+  margin-top: 8px;
+  z-index: 20;
 }
 .game-form__btn {
   margin-top: 30px;
-  background: radial-gradient(50% 50% at 50% 50%, #FF8000 0%, #FF4A00 100%);
-  border: 1px solid #FF7A00;
+  background: radial-gradient(50% 50% at 50% 50%, #ff8000 0%, #ff4a00 100%);
+  border: 1px solid #ff7a00;
   box-sizing: border-box;
   border-radius: 5px;
   font-weight: bold;
   font-size: 12px;
   line-height: 15px;
-  color: #FFFFFF;
+  color: #ffffff;
   height: 60px;
   width: 310px;
   padding: 16px 27px;
@@ -193,7 +212,7 @@ body {
   display: flex;
 }
 .game-form-promocode__input {
-  border: 2px dashed #3B4042;
+  border: 2px dashed #3b4042;
   box-sizing: border-box;
   border-radius: 5px;
   background: none;
@@ -201,22 +220,33 @@ body {
   padding: 16px 28px;
   color: #fff;
   outline: none;
+
+  z-index: 20;
 }
 .game-form-promocode__btn {
-  border: 1px solid #3B4042;
+  border: 1px solid #3b4042;
+  fill: #3b4042;
   border-radius: 5px;
   height: 48px;
   width: 48px;
   background: none;
   outline: none;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+.game-form-promocode__btn:hover {
+  fill: #ffffff;
 }
 /* ROULETTE FORM */
-
 
 /* PRIZES */
 .game-consistent {
   background: #111217;
-  border: 1px solid #14161B;
+  border: 1px solid #14161b;
   box-sizing: border-box;
   border-radius: 5px;
   padding: 14px;
@@ -226,8 +256,8 @@ body {
 }
 
 .game-consistent-item {
-  background: #161A1F;
-  border: 1px solid #1B1B1F;
+  background: #161a1f;
+  border: 1px solid #1b1b1f;
   box-sizing: border-box;
   border-radius: 5px;
   text-align: center;
@@ -240,14 +270,38 @@ body {
   max-width: 169px;
   max-height: 169px;
   width: 100%;
+  transform: scale(1.5);
 }
 
 .game-consistent-item__label {
   font-weight: bold;
   font-size: 12px;
   line-height: 15px;
-  
-  color: #747A7C;
+
+  color: #747a7c;
 }
 
 /* PRIZES */
+
+/* ALTERNATIVE PAGE */
+.alternative .game-inner {
+  background: url("../images/alternative/game-bg.png") center;
+}
+.alternative .game-content {
+  padding: 0 180px;
+}
+.alternative .game-wreath {
+  margin-top: -20px;
+}
+.alternative .game-form-bg {
+  top: 190px;
+  left: calc(50% - 615px / 2);
+}
+.game-alternative-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+}
+/* ALTERNATIVE PAGE */
