@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Double Crash</title>
+    <link rel="stylesheet" href="css/double.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+  </head>
+  <body>
+    <div class="game-koleso" id="doubleApp">
+      <div class="game-koleso__koleso">
+        <img
+          src="./images/double/Group 530.png"
+          class="game-koleso__arrow"
+          alt="Active Arrow"
+        />
+        
+        <img
+          src="./images/double/game_inner_bg.png"
+          class="game-koleso__bg"
+          alt="Active Arrow"
+        />
+
+        <div
+          class="game-koleso__circle"
+          :style="{transitionDuration: duration + 'ms', transform: 'rotate('+rotate+'deg)'}"
+        >
+          <div
+            class="game-koleso__circle_item"
+            :class="colors[prize.value].color"
+            v-for="(prize, index) in prizes"
+            :key="index"
+            :style="{transform: 'rotate( '+ - 360 / 30 * index + 'deg)'}"
+          >
+            <svg
+              width="98"
+              height="104"
+              viewBox="0 0 98 104"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M81.7225 81.694C81.9891 84.4425 79.9773 86.8903 77.2253 87.1186C58.08 88.7062 38.8381 88.753 19.6853 87.2585C16.9323 87.0437 14.9086 84.6056 15.1618 81.8558L20.7557 21.1021C21.0088 18.3522 23.443 16.3329 26.1968 16.5382C40.9021 17.6348 55.6701 17.5989 70.3699 16.4308C73.1227 16.2121 75.5666 18.2196 75.8332 20.9681L81.7225 81.694Z"
+                  :fill="'url(#paint_linear' + index + ')'"
+                />
+              </g>
+              <defs>
+                <linearGradient
+                  :id="'paint_linear' + index"
+                  x1="46.5627"
+                  y1="11.4978"
+                  x2="46.1468"
+                  y2="92.9968"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop :stop-color="colors[prize.value].start" />
+                  <stop offset="1" :stop-color="colors[prize.value].end" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <span>{{prize.value}}X</span>
+          </div>
+        </div>
+
+            <transition name="slide-up-down">
+          <div key="winner" class="game-koleso__winner" v-if="game.multiplier">
+            winner
+          </div>
+          <div key="next" class="game-koleso__winner" v-else>
+            до следующего раунда
+          </div>
+        </transition>
+        <transition name="slide-down-up">
+          <div key="x" class="game-koleso__rate" v-if="game.multiplier">
+            <span :class="colors[game.multiplier].color">{{ game.multiplier }}X</span>
+          </div>
+          <div key="t" class="game-koleso__rate" v-else>
+            00:{{ (game.timer < 10 ? '0' : '') + game.timer }}
+          </div>
+        </transition>
+
+        <div class="double-history">
+            <div
+                class="double-history-item"
+                v-for="h in history"
+                :key="'h' + h.id"
+                :class="classes[h.result]"
+                >{{h.value}}</div>
+        </div>
+      </div> 
+      <!-- <div class="game-koleso__secur">
+        <svg class="ico ico-mono-security">
+          <use
+            xlink:href="/images/sprite-mono.svg#ico-mono-security"
+          ></use></svg>Победитель определяется через сервис random.org
+      </div> -->
+    </div>
+
+    <template id="kolesoTemplate"> </template>
+
+    <div class="game-wrapper" style="display: none" id="doubleApp">
+      <div class="game-inner">
+        <!-- Prizes will move around -->
+        <div
+          class="prizes"
+          v-for="prize in prizes"
+          :class="{'prizes-roll': isRoll}"
+        >
+          <div class="prizes__item"></div>
+        </div>
+
+        <!-- WHEEL BACKGROUND -->
+        <img
+          src="./images/double/game_inner_bg.png"
+          alt=""
+          class="game-form-bg"
+        />
+      </div>
+
+      <div class="game__label">до следующего раунда</div>
+      <div class="game__time"></div>
+      <div class="game-history">
+        <div
+          v-for="(item, key) in history"
+          :key="key"
+          :class="item.color"
+          class="game-history__item"
+        >
+          {{item.value}}
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js" defer></script>
+    <script src="./js/main.js" defer></script>
+  </body>
+</html>
