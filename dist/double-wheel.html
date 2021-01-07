@@ -12,7 +12,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
   </head>
   <body>
-    <div class="game-koleso" id="doubleApp">
+    
+    <div class="wrapper">
+      <div class="game-koleso" id="doubleApp">
       <div class="game-koleso__koleso">
         <img
           src="./images/double/Group 530.png"
@@ -23,13 +25,11 @@
         <img
           src="./images/double/game_inner_bg.png"
           class="game-koleso__bg"
-          alt="Active Arrow"
+          alt="Koleso Background"
         />
 
-        <div
-          class="game-koleso__circle"
-          :style="{transitionDuration: duration + 'ms', transform: 'rotate('+rotate+'deg)'}"
-        >
+        <div class="game-koleso__circle"
+            :style="{transitionDuration: duration + 'ms', transform: 'rotate('+rotate+'deg)'}">
           <div
             class="game-koleso__circle_item"
             :class="colors[prize.value].color"
@@ -69,7 +69,9 @@
           </div>
         </div>
 
-            <transition name="slide-up-down">
+      </div> 
+      <div class="game-koleso-form">
+        <transition name="slide-up-down">
           <div key="winner" class="game-koleso__winner" v-if="game.multiplier">
             winner
           </div>
@@ -94,13 +96,14 @@
                 :class="classes[h.result]"
                 >{{h.value}}</div>
         </div>
-      </div> 
+      </div>
       <div class="game-koleso__secur">
         <svg class="ico ico-mono-security">
-          <use
-            xlink:href="/images/sprite-mono.svg#ico-mono-security"
-          ></use></svg>Победитель определяется через сервис random.org
+          <use xlink:href="/images/sprite-mono.svg#ico-mono-security"></use>
+        </svg>
+        Победитель определяется через сервис random.org
       </div>
+    </div>
     </div>
 
     <template id="kolesoTemplate"> </template>

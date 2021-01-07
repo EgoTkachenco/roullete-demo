@@ -302,10 +302,11 @@ try {
         { color: "pink", result: "2", value: "3X" },
         { color: "blue", result: "3", value: "5X" },
         { color: "green", result: "4", value: "50X" },
+        { color: "green", result: "4", value: "50X" },
       ],
     }),
     mounted() {
-      setTimeout(() => { 
+      setTimeout(() => {
         this.showCell(2000)
        }, 1000)
     },
